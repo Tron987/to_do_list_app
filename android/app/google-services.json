@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1046670482772",
+    "project_id": "abbie-60b08",
+    "storage_bucket": "abbie-60b08.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1046670482772:android:0a1bd8c2a10a44245c3cc1",
+        "android_client_info": {
+          "package_name": "com.example.todolist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1046670482772-ts7v7g1k9s4g281731tu1mscg8bfihkj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.todolist",
+            "certificate_hash": "eb9fb70a080cff989a8a986ff2c01138f2198f3f"
+          }
+        },
+        {
+          "client_id": "1046670482772-616geg687t24bf1q3viamtiod1borrbm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBejjSc8xTAPVFH1cfocn_HYSw5VuEDoew"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1046670482772-616geg687t24bf1q3viamtiod1borrbm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

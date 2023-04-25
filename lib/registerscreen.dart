@@ -20,6 +20,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
       TextEditingController();
+      bool isloading = false;
 
 
 
@@ -27,7 +28,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SingleChildScrollView(
+      child: Container(
         padding: const EdgeInsets.all(16.0),
         child: Form(
           key: _formKey,
@@ -120,7 +122,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-  onPressed: ()  async{if (_formKey.currentState!.validate()) {
+  onPressed: isloading ? null :()  async{if (_formKey.currentState!.validate()) {
+                        setState(() {
+                      isloading = true;
+                    });
     try {
       UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: _emailController.text,
@@ -141,9 +146,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
     } catch (e) {
       print(e);
     }
+    finally {
+                      setState(() {
+                        isloading = false;
+                      });
+                    }
   }
+  
   },
-  child: const Text('Register'),
+  child: isloading ? const CircularProgressIndicator() : const Text('Register'),
   style: ElevatedButton.styleFrom(
     primary: Colors.red,
     textStyle: const TextStyle(color: Colors.white),
@@ -155,6 +166,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
           ),
         ),
       ),
+      )
     );
+    
   }
+  
 }

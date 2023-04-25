@@ -25,9 +25,9 @@ class _SplashState extends State<Splash> {
     bool isLoggedIn = prefs.getBool('isLoggedIn') ?? false;
     if (isLoggedIn) {
       // ignore: use_build_context_synchronously
-       Timer(const Duration(seconds: 4), (){
-      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (_) => Task()), (route) => false);
-       });
+      Timer(const Duration(seconds: 4), () {
+        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (_) => Task()), (route) => false);
+      });
     } else {
       Timer(const Duration(seconds: 4), () {
         Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (_) => LoginScreen()), (route) => false);
@@ -37,12 +37,23 @@ class _SplashState extends State<Splash> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Hero(
-          tag: "logo",
-          child: Image(
-            image: AssetImage('images/try.png'),
+    return Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('images/Capture11.PNG'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: const Center(
+          child: Hero(
+            tag: "logo",
+            child: AspectRatio(
+              aspectRatio: 1,
+              child: Image(
+                image: AssetImage('images/Capture11.PNG'),
+              ),
+            ),
           ),
         ),
       ),

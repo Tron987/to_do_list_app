@@ -1,22 +1,23 @@
-import 'dart:ui';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:intl/intl.dart';
 
 class AddActivityPage extends StatelessWidget {
   final TextEditingController _taskNameController = TextEditingController();
   final TextEditingController _timeController = TextEditingController();
 
+  AddActivityPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add Activity', style: TextStyle(color: Colors.white)),
+        title: const Text('Add Activity', style: TextStyle(color: Colors.white)),
         backgroundColor: Colors.red,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.white),
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () => Navigator.pop(context),
         ),
       ),
@@ -29,16 +30,16 @@ class AddActivityPage extends StatelessWidget {
               controller: _taskNameController,
               decoration: InputDecoration(
                 filled: true,
-                fillColor: Color.fromARGB(223, 161, 93, 68).withOpacity(0.5),
+                fillColor: const Color.fromARGB(223, 161, 93, 68).withOpacity(0.5),
                 hintText: 'Task Name',
               ),
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             TextField(
               controller: _timeController,
               decoration: InputDecoration(
                 filled: true,
-                fillColor: Color.fromARGB(223, 161, 93, 68).withOpacity(0.5),
+                fillColor: const Color.fromARGB(223, 161, 93, 68).withOpacity(0.5),
                 hintText: 'Time',
               ),
               onTap: () async {
@@ -51,7 +52,7 @@ class AddActivityPage extends StatelessWidget {
                 }
               },
             ),
-            SizedBox(height: 32.0),
+            const SizedBox(height: 32.0),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
@@ -75,10 +76,10 @@ class AddActivityPage extends StatelessWidget {
                     print('Failed to add todo: $error');
                   });
                 },
-                child: Text('Add Todo List'),
+                child: const Text('Add Todo List'),
                 style: ElevatedButton.styleFrom(
                   primary: Colors.purple,
-                  textStyle: TextStyle(color: Colors.white),
+                  textStyle: const TextStyle(color: Colors.white),
                 ),
               ),
             ),
